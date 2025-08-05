@@ -1,0 +1,32 @@
+Plot histograms:
+
+ggplot(data=micro_ct_dataset, aes(x=var)) +
+  geom_histogram(fill="steelblue", color="black") +
+  ggtitle("Histogram of Var")
+
+
+#create scatterplot of var1 vs. var2 using stain as color variable
+
+ggplot(data=micro_ct_dataset, aes(x=var1, y=var2, color=Stain)) + 
+  geom_point()
+
+#Compute summary statistics by Stains:
+
+group_by(micro_ct_dataset, Stain) %>%
+  summarise(
+    count = n(),
+    median = median(Hindgut_PTC, na.rm = TRUE),
+    IQR = IQR(var, na.rm = TRUE)
+  )
+
+ggline(micro_ct_dataset, x = "Stain", y = "var", 
+       add = c("mean_se", "jitter"), 
+       order = c("Lugols", "Lugols_PTA1", "Lugols_PTA2"),
+       ylab = "Probabilistic tissue contrast ", xlab = "Stain")
+
+
+EDA
+
+library(DataExplorer)
+data_list <- list(Stain)
+plot_str(data_list)

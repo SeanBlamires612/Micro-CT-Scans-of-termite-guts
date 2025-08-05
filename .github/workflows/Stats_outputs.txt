@@ -1,0 +1,88 @@
+> head(micro_ct_dataset)
+# A tibble: 6 x 24
+  Stain Hindgut_vol Hindgut_CSA Hindgut_PTC Hindgut_PI Midgut_vol Midgut_CSA Midgut_PTC Midgut_PI Forgut_vol Forgut_CSA Forgut_PTC
+  <chr>       <dbl>       <dbl>       <dbl>      <dbl>      <dbl>      <dbl>      <dbl>     <dbl>      <dbl>      <dbl>      <dbl>
+1 Lugo~     130386.       7809.       0.44          30     59202       4599       0.580        34     48658.     40453.       0.5 
+2 Lugo~     192084.      10021.       0.570         63    505665.      4111.      0.6          36     32553.      3101.       0.63
+3 Lugo~     158044.       8942.       0.69          48     43398.      4035.      0.53         21     42017.      2651.       0.53
+4 Lugo~     134733.       7982.       0.61          51     56080.      4407.      0.62         36     37206.      3353.       0.45
+5 Lugo~     167690.       9159.       0.56          65      7254.      5271.      0.54         44     42510       3857        0.6 
+6 Lugo~     150458.       8507.       0.580         48     90295.      6058.      0.570        42     33211.      3120.       0.55
+# ... with 12 more variables: Forgut_PI <dbl>, SG_vol <dbl>, SG_CSA <dbl>, SG_PTC <dbl>, SG_PI <dbl>, brain_vol <dbl>, brain_CSA <dbl>,
+#   brain_PTC <dbl>, brain_PI <dbl>, `thorax width` <dbl>, head_width <dbl>, `cuticle width` <dbl>
+
+> summary (micro_ct_dataset)
+    Stain            Hindgut_vol       Hindgut_CSA      Hindgut_PTC       Hindgut_PI     Midgut_vol       Midgut_CSA      Midgut_PTC    
+ Length:61          Min.   :  15984   Min.   :  1220   Min.   :0.4200   Min.   :30.0   Min.   :  7254   Min.   : 1586   Min.   :0.4000  
+ Class :character   1st Qu.: 150618   1st Qu.:  8812   1st Qu.:0.5575   1st Qu.:51.0   1st Qu.: 72853   1st Qu.: 5876   1st Qu.:0.5600  
+ Mode  :character   Median : 189212   Median :  9961   Median :0.6050   Median :55.0   Median :108305   Median : 7194   Median :0.6100  
+                    Mean   : 231094   Mean   : 12140   Mean   :0.6082   Mean   :55.6   Mean   :127373   Mean   : 7535   Mean   :0.6348  
+                    3rd Qu.: 279524   3rd Qu.: 13021   3rd Qu.:0.6600   3rd Qu.:63.0   3rd Qu.:178241   3rd Qu.: 9158   3rd Qu.:0.7125  
+                    Max.   :1586801   Max.   :104076   Max.   :0.9400   Max.   :72.0   Max.   :505665   Max.   :17703   Max.   :0.8600  
+                    NA's   :1         NA's   :1        NA's   :1        NA's   :1      NA's   :1        NA's   :1       NA's   :1       
+ 
+  Midgut_PI       Forgut_vol        Forgut_CSA      Forgut_PTC       Forgut_PI         SG_vol            SG_CSA            SG_PTC      
+ Min.   :21.00   Min.   :   2029   Min.   : 1136   Min.   :0.4400   Min.   :22.00   Min.   :    0.0   Min.   :  32.89   Min.   : 0.490  
+ 1st Qu.:37.75   1st Qu.:  36775   1st Qu.: 3331   1st Qu.:0.6000   1st Qu.:31.00   1st Qu.:  756.8   1st Qu.: 278.65   1st Qu.: 0.680  
+ Median :43.00   Median :  60264   Median : 4913   Median :0.6900   Median :35.00   Median : 1851.2   Median : 457.93   Median : 0.750  
+ Mean   :42.92   Mean   :  93734   Mean   : 5694   Mean   :0.6774   Mean   :35.02   Mean   : 4513.7   Mean   : 702.53   Mean   : 2.203  
+ 3rd Qu.:47.00   3rd Qu.:  91736   3rd Qu.: 6864   3rd Qu.:0.7500   3rd Qu.:38.00   3rd Qu.: 4559.2   3rd Qu.: 868.38   3rd Qu.: 0.850  
+ Max.   :64.00   Max.   :1154151   Max.   :40453   Max.   :0.9000   Max.   :52.00   Max.   :21784.6   Max.   :2542.71   Max.   :89.000  
+ NA's   :1       NA's   :1         NA's   :1                        NA's   :1       NA's   :1         NA's   :1                         
+     SG_PI          brain_vol         brain_CSA       brain_PTC         brain_PI      thorax width      head_width     cuticle width   
+ Min.   :  0.00   Min.   :   5724   Min.   : 1339   Min.   :0.5300   Min.   :158.1   Min.   : 41.11   Min.   : 52.09   Min.   : 9.055  
+ 1st Qu.: 94.15   1st Qu.:  62997   1st Qu.: 5040   1st Qu.:0.7278   1st Qu.:194.1   1st Qu.: 68.69   1st Qu.: 68.19   1st Qu.:17.095  
+ Median : 99.48   Median :  85008   Median : 6420   Median :0.8000   Median :198.1   Median : 75.70   Median : 80.72   Median :20.845  
+ Mean   : 97.91   Mean   : 166115   Mean   : 6490   Mean   :0.7961   Mean   :197.2   Mean   : 87.76   Mean   : 83.63   Mean   :21.944  
+ 3rd Qu.:104.81   3rd Qu.: 133910   3rd Qu.: 8286   3rd Qu.:0.8920   3rd Qu.:203.5   3rd Qu.: 86.45   3rd Qu.: 97.47   3rd Qu.:25.976  
+ Max.   :110.67   Max.   :2441752   Max.   :13026   Max.   :0.9700   Max.   :233.0   Max.   :205.35   Max.   :116.11   Max.   :46.530  
+ NA's   :1        NA's   :1         NA's   :1       NA's   :1        NA's   :1       NA's   :1        NA's   :1        NA's   :1   
+   
+> dim(micro_ct_dataset)
+[1] 61 24
+
+
+> introduce(micro_ct_dataset)
+# A tibble: 1 x 9
+   rows columns discrete_columns continuous_columns all_missing_columns total_missing_values complete_rows total_observations memory_usage
+  <int>   <int>            <int>              <int>               <int>                <int>         <int>              <int>        <dbl>
+1    60      24                1                 23                   0                    0            60               1440        17392
+
+
+
+kruskal.test(Hindgut_PTC ~ Stain, data = micro_ct_dataset)
+
+	Kruskal-Wallis rank sum test
+
+data:  Hindgut_PTC by Stain
+Kruskal-Wallis chi-squared = 5.0913, df = 2, p-value = 0.07842
+
+
+> group_by(micro_ct_dataset, Stain) %>%
++   summarise(
++     count = n(),
++     median = median(Hindgut_PTC, na.rm = TRUE),
++     IQR = IQR(Hindgut_PTC, na.rm = TRUE)
++   )
+
+`summarise()` ungrouping output (override with `.groups` argument)
+# A tibble: 3 x 4
+  Stain       count median    IQR
+  <chr>       <int>  <dbl>  <dbl>
+1 Lugols         20  0.580 0.0700
+2 Lugols_PTA1    20  0.64  0.0625
+3 Lugols_PTA2    20  0.605 0.103 
+
+> group_by(micro_ct_dataset, Stain) %>%
++   summarise(
++     count = n(),
++     median = median(Hindgut_PTC, Midgut_PTC, Forgut_PTC, SG_PTC, brain_PTC, na.rm = TRUE),
++     IQR = IQR(Hindgut_PTC, na.rm = TRUE)
++   )
+`summarise()` ungrouping output (override with `.groups` argument)
+# A tibble: 3 x 4
+  Stain       count median    IQR
+  <chr>       <int>  <dbl>  <dbl>
+1 Lugols         20  0.580 0.0700
+2 Lugols_PTA1    20  0.64  0.0625
+3 Lugols_PTA2    20  0.605 0.103
